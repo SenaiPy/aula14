@@ -1,4 +1,7 @@
+import pessoaOOP as p
 import streamlit as st
+
+p1 = p.Pessoa()
 
 st.title("Programação Orientada a Objetos em Streamlit")
 
@@ -9,23 +12,22 @@ with coluna1:
     allidades = []
     st.subheader("Função 1: Pessoa mais velha")
     
-    nome1 = st.text_input("Nome da pessoa 1")
-    idade1 = st.number_input("Idade da Pessoa 1", min_value=0, step=1)
+    p1.nome = st.text_input("Nome da pessoa 1")
+    p1.idade = st.number_input("Idade da Pessoa 1", min_value=0, step=1)
+    allnomes.append(p1.nome)
+    allidades.append(p1.idade)
 
-    nome2 = st.text_input("Nome da pessoa 2")
-    idade2 = st.number_input("Idade da Pessoa 2", min_value=0, step=1)
-
-    allnomes.append(nome1)
-    allnomes.append(nome2)
-    allidades.append(idade1)
-    allidades.append(idade2)
+    p1.nome = st.text_input("Nome da pessoa 2")
+    p1.idade = st.number_input("Idade da Pessoa 2", min_value=0, step=1)
+    allnomes.append(p1.nome)
+    allidades.append(p1.idade)
 
 
     if st.button("Enviar"):
-        if allidades[0] > allidades[1]:
-            st.write(f"A pessoa mais velha é {allnomes[0]}")
+        if p1.idade[0] > p1.idade[1]:
+            st.write(f"A pessoa mais velha é {p1.nome[0]}")
         else:
-            st.write(f"A pessoa mais velha é {allnomes[1]}")
+            st.write(f"A pessoa mais velha é {p1.nome[1]}")
 
 
 with coluna2:
